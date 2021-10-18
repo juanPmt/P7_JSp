@@ -5,8 +5,8 @@
  */
 package co.usa.edu.grupo0.ciclo3.web;
 
-import co.usa.edu.grupo0.ciclo3.modelo.Client;
-import co.usa.edu.grupo0.ciclo3.servicios.ClientService;
+import co.usa.edu.grupo0.ciclo3.modelo.Category;
+import co.usa.edu.grupo0.ciclo3.servicios.CategoryService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,32 +23,31 @@ import org.springframework.web.bind.annotation.RestController;
  * @author July
  */
 
+
+
 @RestController
 @RequestMapping("/api/Client")
 //Importar CrossDrigin No me deja dice que no existe. 
 
-public class ClientController {
+public class CategoryController {
     
    @Autowired
-   private ClientService clientService;
+   private CategoryService categoryService;
    
    @GetMapping("/all")
-   public List<Client> getClients(){
-       return clientService.getAll();
+   public List<Category> getCategories(){
+       return categoryService.getAll();
    }
    
-   @GetMapping("/{idClient}")//Nuevo metodo donde editata id 
-    public Client getClient(@PathVariable("idClient")int idClient){
-        return clientService.getClient(idClient);
+  @GetMapping("/{id}")//Nuevo metodo donde editata id 
+    public Category getCategory(@PathVariable("id")int id){
+        return categoryService.getClient(id);
    }
-   
-   
    
    @PostMapping("/save")
    @ResponseStatus(HttpStatus.CREATED)
-    public Client save(@RequestBody Client client){
-        return clientService.save(client);
+    public Category save(@RequestBody Category category){
+        return categoryService.save(category);
     }
-     
     
 }
