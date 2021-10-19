@@ -10,6 +10,7 @@ import co.usa.edu.grupo0.ciclo3.modelo.Computer;
 import co.usa.edu.grupo0.ciclo3.modelo.Message;
 import co.usa.edu.grupo0.ciclo3.repositorio.cruds.ClientCrudRepository;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -17,22 +18,22 @@ import org.springframework.stereotype.Repository;
  *
  * @author EUSEBIO
  */
-
 @Repository
 public class ClientRepository {
+
     @Autowired
-    private ClientCrudRepository repoClient;
-    
-    public List<Client> getAll(){
-        return (List<Client>)repoClient.findAll();
-    }
-    public List<Client> getByIdMessage( int message_id){
-        return (List<Client>) repoClient.finByIdMessageOrderByNombreAsc(message_id);
+    private ClientCrudRepository crudClient;
+
+    public List<Client> getAll() {
+        return (List<Client>) crudClient.findAll();
     }
     
-   
-        
-        
-//    aqui comienza el problem
+    public Optional<Client> getClient(int id){
+        return crudClient.findById(id);
+    }
+
+    public Client save(Client client){
+        return crudClient.save(client);
+    }  
     
 }

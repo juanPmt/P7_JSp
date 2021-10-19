@@ -17,9 +17,5 @@ import org.springframework.data.repository.CrudRepository;
  * @author EUSEBIO
  */
 public interface ComputerCrudRepository extends CrudRepository<Computer, Integer>{
-  // mismo tipo de datos que colocamos en Id
-    
-//    @Query(value="select * from computer where category_id = ? order by nombre ASC",
-//            nativeQuery = true)
-//    public List<Computer> finByIdCategoryOrderByNombreAsc( int idCategory);
+
 }

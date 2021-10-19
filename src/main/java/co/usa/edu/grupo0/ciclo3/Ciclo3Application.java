@@ -22,15 +22,15 @@ import org.springframework.context.annotation.ComponentScan;
 public class Ciclo3Application {
     
     @Autowired
-    private ComputerRepository repoComputer;
+    private ComputerRepository crudComputer;
     @Autowired
-    private CategoryRepository repoCategory ;
+    private CategoryRepository crudCategory ;
     
     
     @Autowired
-    private ClientRepository repoClient;
+    private ClientRepository crudClient;
     @Autowired
-    private MessageRepository repoMessage ;
+    private MessageRepository crudMessage ;
 
     public static void main(String[] args) {
     SpringApplication.run(Ciclo3Application.class, args);
@@ -39,16 +39,16 @@ public class Ciclo3Application {
     @Bean
     ApplicationRunner applicationRunner(){
         return args -> {
-            List<Computer> rcom = repoComputer.getAll();
+            List<Computer> rcom = crudComputer.getAll();
             System.out.println("Computers: "+rcom.size());
             
-            List<Category> rcat= repoCategory.getAll();
+            List<Category> rcat= crudCategory.getAll();
             System.out.println("Categories: "+rcat.size());
             
-            List<Client> rcli= repoClient.getAll();
+            List<Client> rcli= crudClient.getAll();
             System.out.println("Clients: "+rcli.size());
             
-            List<Message> rmess= repoMessage.getAll();
+            List<Message> rmess= crudMessage.getAll();
             System.out.println("Messages: "+rmess.size());
             
             

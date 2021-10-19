@@ -9,6 +9,7 @@ import co.usa.edu.grupo0.ciclo3.modelo.Client;
 import co.usa.edu.grupo0.ciclo3.modelo.Message;
 import co.usa.edu.grupo0.ciclo3.repositorio.cruds.MessageCrudRepository;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -21,11 +22,18 @@ import org.springframework.stereotype.Repository;
 public class MessageRepository {
     
     @Autowired
-    private MessageCrudRepository repoMessage;
+    private MessageCrudRepository crudMessage;
     
     public List<Message> getAll(){
-        return (List<Message>) repoMessage.findAll();
-    
+        return (List<Message>) crudMessage.findAll();
     }
+    
+    public Optional<Message> getMessage(int id){
+        return crudMessage.findById(id);
+    }
+    
+    public Message save(Message message){
+        return crudMessage.save(message);
+    }  
     
 }

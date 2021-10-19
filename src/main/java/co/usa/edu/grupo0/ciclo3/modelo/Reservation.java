@@ -33,13 +33,13 @@ public class Reservation implements Serializable{
     
     
     @ManyToOne
-    @JoinColumn(name="id")//llave foranea en categoria
+    @JoinColumn(name="id_computer")//llave foranea en categoria
     @JsonIgnoreProperties({"reservations"}) //evita que se genere una referencia circular 
     private Computer computer;
     
     
     @ManyToOne
-    @JoinColumn(name="idClient")//llave foranea en categoria
+    @JoinColumn(name="id_client")//llave foranea en categoria
     @JsonIgnoreProperties({"reservations","messages"}) //evita que se genere una referencia circular 
     private Client client;
     

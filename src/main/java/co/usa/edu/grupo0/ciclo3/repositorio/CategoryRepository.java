@@ -8,6 +8,7 @@ package co.usa.edu.grupo0.ciclo3.repositorio;
 import co.usa.edu.grupo0.ciclo3.modelo.Category;
 import co.usa.edu.grupo0.ciclo3.repositorio.cruds.CategoryCrudRepository;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -19,10 +20,18 @@ import org.springframework.stereotype.Repository;
 public class CategoryRepository {
     
     @Autowired
-    private CategoryCrudRepository repoCategory;
+    private CategoryCrudRepository crudCategory;
+    
     
     public List<Category> getAll(){
-        return (List<Category>) repoCategory.findAll();
-    }
+    return (List<Category>) crudCategory.findAll();
+}
     
+   public Optional<Category> getCategory(int id){
+        return crudCategory.findById(id);
+    }
+
+    public Category save(Category category){
+        return crudCategory.save(category);
+    }  
 }

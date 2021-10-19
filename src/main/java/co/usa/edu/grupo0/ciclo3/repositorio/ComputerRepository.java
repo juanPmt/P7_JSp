@@ -20,22 +20,16 @@ import org.springframework.stereotype.Repository;
 public class ComputerRepository {
 
     @Autowired
-    private ComputerCrudRepository crud;
+    private ComputerCrudRepository crudComputer;
 
     public List<Computer> getAll(){
-        return (List<Computer>) crud.findAll();
+        return (List<Computer>) crudComputer.findAll();
     }
 
     public Optional<Computer> getComputer(int id) {
-        return crud.findById(id);
+        return crudComputer.findById(id);
     }
-
-    public Computer save(Computer computer) {
-        return crud.save(computer);
-    }
-
-    public void delete(Computer computer) {
-        crud.delete(computer);
-    }    
-    
+    public Computer save(Computer computer){
+        return crudComputer.save(computer);
+    }  
 }

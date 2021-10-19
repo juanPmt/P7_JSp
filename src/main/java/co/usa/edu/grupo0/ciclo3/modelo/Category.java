@@ -18,10 +18,10 @@ import javax.persistence.Table;
 
 /**
  *
- * @author EUSEBIO
+ * @author July
  */
 @Entity
-@Table(name = "categories")
+@Table(name = "category")
 public class Category {
     
     
@@ -32,6 +32,8 @@ public class Category {
     private String name;
     private String description;
 
+    
+    //Relación con Computer 
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "category")
     @JsonIgnoreProperties("category")
     private List<Computer> computers;

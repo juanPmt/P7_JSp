@@ -30,12 +30,12 @@ public class Message implements Serializable{
     private String messageText;
 
     @ManyToOne
-    @JoinColumn(name="id")//llave foranea en categoria
+    @JoinColumn(name="id_computer")//llave foranea en categoria
     @JsonIgnoreProperties({"messages", "clients", "reservations"}) //evita que se genere una referencia circular 
     private Computer computer;
     
     @ManyToOne
-    @JoinColumn(name="idclient")//llave foranea en categoria
+    @JoinColumn(name="id_client")//llave foranea en categoria
     @JsonIgnoreProperties({"messages", "reservations", "clients"}) //evita que se genere una referencia circular 
     private Client client;
 

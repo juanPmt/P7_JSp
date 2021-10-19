@@ -20,7 +20,7 @@ import javax.persistence.Table;
 
 /**
  *
- * @author EUSEBIO
+ * @author July
  */
 @Entity
 @Table(name="clients")
@@ -32,8 +32,8 @@ public class Client implements Serializable {
     private Integer idClient;
     private String name;
     private String email;
+    private String age;
     private String password;
-    private Integer age;
 
     //Construir la relacion de muchos a uno
     //productos es el nombre de la categoria que vamos a relacionar del otro lado
@@ -74,20 +74,20 @@ public class Client implements Serializable {
         this.email = email;
     }
 
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
     public String getPassword() {
         return password;
     }
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
     }
 
     public List<Message> getMessages() {
@@ -105,6 +105,7 @@ public class Client implements Serializable {
     public void setReservations(List<Reservation> reservations) {
         this.reservations = reservations;
     }
+
     
 
 }
